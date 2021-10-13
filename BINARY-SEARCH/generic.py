@@ -1,6 +1,5 @@
 from __future__ import annotations
-from typing import TypeVar, Iterable, Sequence, Generic, List, Callable, Set, Deque, Dict, Any, Optional, Protocol
-from heapq import heappush, heappop
+from typing import TypeVar, Sequence, Any, Protocol
 
 C = TypeVar('C', bound="Comparable")
 

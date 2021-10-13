@@ -20,6 +20,29 @@ def string_to_gene(s: str) -> Gene:
 
     return gene
 
+def binary_search(gene: Gene, key_codon: Codon) -> bool:
+    low: int = 0
+    high: int = len(gene) - 1
+
+    while low <= high:
+        mid: int = (low + high) // 2
+
+        if gene[mid] < key_codon:
+            low = mid + 1
+        elif gene[mid] > key_codon:
+            high = mid - 1
+        else:
+            return True
+
+    return False
+
 
 gene_str: str = "ACGTGGCTCTCTAACGTACGTACGTACGGGGTTTATATATACCCTAGGACTCCCTTT"
 my_gene: Gene = string_to_gene(gene_str)
+
+acg: Codon = (Nucleotide.A, Nucleotide.C, Nucleotide.G)
+gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
+
+my_sorted_gene: Gene = sorted(my_gene)
+print(binary_search(my_sorted_gene, acg))
+print(binary_search(my_sorted_gene, gat))

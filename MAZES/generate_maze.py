@@ -46,5 +46,8 @@ class Maze:
 
         return output
 
+    def goal_test(self, ml: MazeLocation) -> bool:
+        return ml == self.goal
+
 maze: Maze = Maze()
 print(maze)
